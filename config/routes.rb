@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   resources :customers, only: [:index, :show]
   resources :products, only: [:index]
   resources :orders, only: [:show, :create]
+  root "customers#index"
 end
