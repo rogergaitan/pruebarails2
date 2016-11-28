@@ -13,7 +13,7 @@ RSpec.describe ProductsController, type: :controller do
       @json = JSON.parse response.body    
     end
       
-    it "returns products list" do
+    it "returns response status 200" do
       expect(response).to be_success
     end
     
