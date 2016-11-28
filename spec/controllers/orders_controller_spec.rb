@@ -24,7 +24,7 @@ RSpec.describe OrdersController, type: :controller do
     end
   end
   
-  describe "POST #index" do
+  describe "POST #create" do
     it "creates new order" do
       customer = FactoryGirl.create :customer
       product_category = FactoryGirl.create :product_category
