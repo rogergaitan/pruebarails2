@@ -23,4 +23,18 @@ RSpec.describe OrdersController, type: :controller do
        expect(json).to eq(expected_content)
     end
   end
+  
+  describe "POST #index" do
+    it "creates new order" do
+      customer = FactoryGirl.create :customer
+      product_category = FactoryGirl.create :product_category
+      product = FactoryGirl.create :product, product_category: product_category
+      product2 = FactoryGirl.create :product, name: "test product 2", price: 200, product_category: product_category
+      
+      post :create, customer_id: customer.id, product_ids: [product.id, product2.id]
+      
+      expect(Order.count).to eq(1)
+    end  
+  end
+  
 end

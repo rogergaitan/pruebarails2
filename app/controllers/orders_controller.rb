@@ -6,7 +6,7 @@ class OrdersController < ApplicationController
   def create
     customer = Customer.find params[:customer_id]
     products = Product.find params[:product_ids]
-    order = Order.create(customer: customer)
+    order = Order.new(customer: customer)
     order.products << products
     if order.save
       render 201
