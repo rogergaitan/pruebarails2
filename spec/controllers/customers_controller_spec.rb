@@ -25,7 +25,7 @@ RSpec.describe CustomersController, type: :controller do
       expect(response).to be_success
     end
     
-    it "return correct content" do
+    it "returns correct content" do
       product_category = FactoryGirl.create :product_category
       product = FactoryGirl.create :product, product_category: product_category 
 
@@ -36,9 +36,9 @@ RSpec.describe CustomersController, type: :controller do
       
       get :show, id: @customer
       json = JSON.parse response.body
-      expected_response = {"customer"=>{"id"=>1, "name"=>"test", "email"=>"test@12test.com", "address"=>"test address", "phone"=>"55566444", "orders"=>[{"id"=>1}]}}
+      expected_content = {"customer"=>{"id"=>1, "name"=>"test", "email"=>"test@12test.com", "address"=>"test address", "phone"=>"55566444", "orders"=>[{"id"=>1}]}}
 
-      expect(json).to eq(expected_response)
+      expect(json).to eq(expected_content)
     end
   end
 

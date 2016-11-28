@@ -1,10 +1,9 @@
 class CustomersController < ApplicationController
   def index
-    @customers = Customer.all  
-    render json: @customers
+    render json: Customer.all
   end
   
   def show
-    render json: Customer.find(params[:id])
+    render json: Customer.find(params[:id]), serializer: CustomerDetailSerializer
   end
 end
